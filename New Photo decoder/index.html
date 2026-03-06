@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata Viewer Pro</title>
+    <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <header>
+            <h1>METADATA VIEWER</h1>
+            <p class="subtitle">Extract hidden EXIF data locally. 100% Secure.</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="upload-box">
+                <button class="upload-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    Upload Photo
+                </button>
+                <p class="subtitle">Supports .JPG, .PNG, .HEIC (iPhone)</p>
+                <input type="file" id="file-input" accept="image/jpeg, image/png, image/heic, image/heif, image/tiff">
+            </div>
+
+            <div id="error-msg" class="error-message">No EXIF data found in this image.</div>
+
+            <div class="results-section" id="results-section">
+                <img id="image-preview" class="preview-img" src="" alt="Uploaded image preview">
+                <p id="heic-warning" style="display: none; text-align: center; color: var(--accent-color); margin-bottom: 1rem;">
+                    <em>Browser preview not supported for HEIC, but data was extracted!</em>
+                </p>
+                
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>Camera</h3>
+                        <p id="data-camera">--</p>
+                    </div>
+                    <div class="data-card">
+                        <h3>Date Taken</h3>
+                        <p id="data-date">--</p>
+                    </div>
+                    <div class="data-card">
+                        <h3>GPS Location</h3>
+                        <p id="data-gps">--</p>
+                        <button id="maps-btn" class="maps-btn" style="display: none;">View on Google Maps</button>
+                    </div>
+                </div>
+
+                <div class="extra-data-section">
+                    <h3>All Other Hidden Details</h3>
+                    <div id="raw-data" class="raw-data-box"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
